@@ -3,18 +3,17 @@ const canvas = document.getElementById("canvas")
 xmax = window.innerWidth
 ymax = window.innerHeight
 
-
-
-canvas.width = xmax
-canvas.height = ymax
-
-var blockSize = 5
-
-xmax = Math.ceil(xmax/blockSize)
-ymax = Math.ceil(ymax/blockSize)
-
-
 ctx = canvas.getContext('2d')
+
+ctx.canvas.width = xmax
+ctx.canvas.height = ymax
+
+var blockSize = 2
+
+xmax = Math.floor(xmax/blockSize)
+ymax = Math.floor(ymax/blockSize)
+
+
 
 
 ruleNumber = Math.floor(Math.random()*255)
@@ -42,7 +41,7 @@ function render() {
             row[Math.floor(xmax/2)+i] = 1
         }
     }
-    if(y == ymax){
+    if(y == ymax-1){
         direction = -1
         ruleNumber = (ruleNumber+1)%256
     }
@@ -51,7 +50,7 @@ function render() {
         ruleNumber = (ruleNumber+1)%256
     }
     y+=direction
-    setTimeout(render,15)
+    setTimeout(render,2)
 }
 
 function nextRow(lastRow,n){
