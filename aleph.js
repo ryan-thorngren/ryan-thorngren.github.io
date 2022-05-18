@@ -51,7 +51,7 @@ function render() {
         ruleNumber = (ruleNumber+1)%256
     }
     y+=direction
-    setTimeout(render,10)
+    setTimeout(render,15)
 }
 
 function nextRow(lastRow,n){
