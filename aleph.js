@@ -10,8 +10,8 @@ canvas.height = ymax
 
 var blockSize = 5
 
-xmax = Math.floor(xmax/blockSize)
-ymax = Math.floor(ymax/blockSize)
+xmax = Math.ceil(xmax/blockSize)
+ymax = Math.ceil(ymax/blockSize)
 
 
 ctx = canvas.getContext('2d')
