@@ -13,7 +13,7 @@ var blockSize = 2
 xmax = Math.floor(xmax/blockSize)
 ymax = Math.floor(ymax/blockSize)
 
-
+seedRadius = 10
 
 
 ruleNumber = Math.floor(Math.random()*255)
@@ -29,6 +29,10 @@ render()
 
 
 function render() {
+    ctx.font = '48px serif'
+    ctx.clearRect(0,0,80,50)
+    ctx.fillText(ruleNumber,0,40)
+
     ctx.clearRect(0,y*blockSize,xmax*blockSize,blockSize)
     for(x = 0; x < xmax; x++){
         if(row[x] == 1){
@@ -36,18 +40,19 @@ function render() {
         }
     }
     row = nextRow(row,ruleNumber)
-    if(y < ymax/2+5 && y > ymax/2-5){
-        for(i = 0; i < 10; i++){
-            row[Math.floor(xmax/2)+i] = 1
+    if(y < ymax/2+seedRadius && y > ymax/2-seedRadius){
+        r = Math.sqrt(seedRadius*seedRadius-Math.pow(y - ymax/2,2))
+        for(i = 0; i < 2*r; i++){
+            row[Math.floor(xmax/2-r)+i] = 1
         }
     }
     if(y == ymax-1){
         direction = -1
-        ruleNumber = (ruleNumber+1)%256
+        ruleNumber = Math.floor(Math.random()*255)
     }
     else if(y == 0){
         direction = 1
-        ruleNumber = (ruleNumber+1)%256
+        ruleNumber = Math.floor(Math.random()*255)
     }
     y+=direction
     setTimeout(render,2)
