@@ -35,7 +35,7 @@ var seedRadius = 10
 
 var row = []
 for(x = 0; x < xmax; x++){
-    row.push(0)
+    row.push(Math.floor(Math.random()*numColors))
 }
 
 var y = 0
