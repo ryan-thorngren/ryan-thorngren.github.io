@@ -4,7 +4,7 @@
 const canvas = document.getElementById("canvas")
 
 var xmax = window.innerWidth
-var ymax = 1200
+var ymax = 1400
 
 var ctx = canvas.getContext('2d')
 
