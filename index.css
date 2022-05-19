@@ -1,4 +1,46 @@
 * {
   margin: 0;
   padding: 0;
+  font-family: sans-serif;
+}
+
+canvas {
+  position: absolute;
+  top: 0px;
+}
+
+.textbox {
+  top:20px;
+  background-color: rgb(0, 0, 0);
+  color: antiquewhite;
+  position: relative;
+  top: 80px;
+  left: 80px;
+  margin-left: 80px;
+  width: 60%;
+}
+
+div {
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+
+p {
+  margin:20px
+}
+
+h1 {
+  margin: 10px;
+}
+
+h2 {
+  margin: 10px;
+}
+
+h3 {
+  margin: 20px;
+}
+
+a {
+  color: hotpink;
 }
