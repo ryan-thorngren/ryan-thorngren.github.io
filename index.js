@@ -89,7 +89,7 @@ function render() {
         if(y < ymax/2+seedRadius && y > ymax/2-seedRadius){
             r = Math.sqrt(seedRadius*seedRadius-Math.pow(y - ymax/2,2))
             for(i = 0; i < 2*r; i++){
-                row[Math.floor(xmax/2-r)+i] = 100
+                row[Math.floor(xmax/2-r)+i] = 1
             }
         }
 
