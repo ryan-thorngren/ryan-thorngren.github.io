@@ -1,2 +1,2 @@
 # ryan-thorngren.github.io
-wobsite
+$\mathcal{wobsite}$
