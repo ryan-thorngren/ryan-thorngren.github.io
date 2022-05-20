@@ -2,6 +2,11 @@
   margin: 0;
   padding: 0;
   font-family: "PTMono";
+  
+}
+
+body {
+  background-color: black;
 }
 
 @font-face {
@@ -13,6 +18,7 @@ canvas {
   position: absolute;
   top: 0px;
   z-index: -1;
+  background-color: black;
 }
 
 .textbox {
@@ -41,7 +47,7 @@ h1 {
 }
 
 h2 {
-  margin: 20px;
+  margin: 10px;
 }
 
 h3 {
