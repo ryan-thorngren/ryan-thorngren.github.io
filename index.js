@@ -40,7 +40,11 @@ var direction = 1
 
 var go = false
 
-window.addEventListener("resize",stopAndGo)
+window.addEventListener("resize",(e) => {
+    if(window.innerWidth != ctx.canvas.width){
+        stopAndGo()
+    }
+})
 
 begin()
 
