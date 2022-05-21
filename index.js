@@ -4,7 +4,8 @@
 const canvas = document.getElementById("canvas")
 
 var height = document.getElementById("stuff").clientHeight
-var xmax = window.innerWidth
+// var xmax = window.innerWidth
+var xmax = document.body.clientWidth
 var ymax = height+200
 
 var ctx = canvas.getContext('2d')
@@ -46,11 +47,12 @@ window.addEventListener("resize",(e) => {
     }
 })
 
-begin()
+window.addEventListener("load",begin)
+
 
 function begin(){
     height = document.getElementById("stuff").clientHeight
-    xmax = window.innerWidth
+    xmax = xmax = document.body.clientWidth
     ymax = height+200
     ctx.canvas.width = xmax
     ctx.canvas.height = ymax
@@ -94,7 +96,7 @@ function render() {
         }
 
         //reverse if at boundary
-        if(y == ymax-1){
+        if(y >= ymax-1){
             direction = -1
             ruleNumber = Math.floor(Math.random()*numRules)
             rgbColors = updateRgbColors()
