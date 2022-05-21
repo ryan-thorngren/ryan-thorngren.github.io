@@ -1,9 +1,9 @@
 <!DOCTYPE HTML>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width">
-    <title>SageMathCell</title>
+<head>
+    <meta charset="utf-8" />
+    <title>sage test</title>
+    <link rel="stylesheet" href="../index.css">
+    <link rel="icon" href="../doot.gif" type="image/gif" />
     <script src="https://sagecell.sagemath.org/static/embedded_sagecell.js"></script>
     <script>
     // Make the div with id 'mycell' a Sage cell
@@ -14,14 +14,15 @@
     sagecell.makeSagecell({inputLocation: 'div.compute',
                            evalButtonText: 'Evaluate'});
     </script>
-  </head>
+</head>
+
+
+<html>
+
   <body>
-  <h1>Embedded Sage Cells</h1>
-
-
-<h2>Your own computations</h2>
-Type your own Sage computation below and click “Evaluate”.
+    <div class="textbox">
+        <h1>test</h1>
     <div class="compute"><script type="text/x-sage">plot(sin(x), (x, 0, 2*pi))</script></div>
-
+</div>
   </body>
 </html>
