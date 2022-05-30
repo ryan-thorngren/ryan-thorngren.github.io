@@ -37,7 +37,7 @@ function init() {
     gui.show()
     params.speed = 1
     gui.add(params,'speed')
-    params.wiggle = 1
+    params.wiggle = 4
     gui.add(params,'wiggle')
     params.fade = 1
     gui.add(params,'fade',1,10)
