@@ -11,3 +11,5 @@ where
 $$s = \exp(-(r-1/2)^2)$$
 
 and $w$ is the parameter I called the "wiggle". This path is $4\pi$ periodic, and it owes its existence to the simply connectedness of the double cover $SU(2) \to SO(3)$.
+
+This path is drawn in the top left insert, where I draw $SO(3)$ as a 3-ball with anti-podal boundary points identified.
