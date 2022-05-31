@@ -25,6 +25,26 @@ const controller = {
 
     toggleFade: function(){
         renderer.autoClearColor = !renderer.autoClearColor
+    },
+
+    toggleAxis: function(){
+        meshes.axis.visible = !meshes.axis.visible
+    },
+
+    toggleGeometry: function(){
+        meshes.ribbon.visible = !meshes.ribbon.visible
+        meshes.hedgehog.visible = !meshes.hedgehog.visible
+    },
+
+    rebuildGeometry: function(){
+        meshes.hedgehog.geometry.dispose()
+        var hhVertices = createHedgehogVertices(params.density,params.density,0.1*params.thickness,1)
+        var hhGeometry = new THREE.BufferGeometry()
+        hhGeometry.setFromPoints(hhVertices)
+        hhGeometry.computeVertexNormals()
+        meshes.hedgehog.geometry = hhGeometry
+        meshes.hedgehog.initialVertices = hhVertices
+        meshes.hedgehog.needsUpdate = true
     }
 }
 
@@ -41,8 +61,16 @@ function init() {
     gui.add(params,'wiggle')
     params.fade = 1
     gui.add(params,'fade',1,10)
+    params.thickness = 1
+    gui.add(params,'thickness',1,10,1)
+    params.density = 1
+    gui.add(params,'density',1,5,1)
     gui.add(controller,'toggleLegend')
     gui.add(controller,'toggleFade')
+    gui.add(controller,'toggleAxis')
+    gui.add(controller,'toggleGeometry')
+    gui.add(controller,'rebuildGeometry')
+    gui.close()
 
     //initialize main scene
     scene = new THREE.Scene()
@@ -65,7 +93,7 @@ function init() {
     minirenderer = new THREE.WebGLRenderer({ preserveDrawingBuffer: false})
     minirenderer.setSize(window.innerWidth/4, window.innerHeight/4)
     document.getElementById("insert").appendChild(minirenderer.domElement)
-
+    minirenderer.domElement.hidden = true
 
     //initialize clock
     t = 0
@@ -96,24 +124,26 @@ function initRibbonMesh() {
     scene.add(meshes.ribbon)
 }
 
-function initHedgehogMesh(n,m) {
+function initHedgehogMesh(n,m,width,stretch) {
     var hhMaterial = new THREE.MeshNormalMaterial()
     var hhGeometry = new THREE.BufferGeometry()
-    var hhVertices = createHedgehogVertices(n,m)
+    var hhVertices = createHedgehogVertices(n,m,width,stretch)
     hhGeometry.setFromPoints(hhVertices)
     hhGeometry.computeVertexNormals()
 
     var hhMesh = new THREE.Mesh(hhGeometry,hhMaterial)
     hhMesh.initialVertices = hhVertices
+    // meshes.hedgehog.dispose()
     meshes.hedgehog = hhMesh
     scene.add(meshes.hedgehog)
 }
 
 function initMeshes() {
 
-    // initRibbonMesh()
-    
-    initHedgehogMesh(1,1)
+    initRibbonMesh()
+    meshes.ribbon.visible = false
+
+    initHedgehogMesh(params.density,params.density,0.1*params.thickness,1)
 
     var sphereRadius = 10
     var sphereGeometry = new THREE.SphereBufferGeometry(sphereRadius,20,20)
@@ -148,8 +178,15 @@ function initMeshes() {
     meshes.curve2 = curve2
     miniscene.add(curve1)
     miniscene.add(curve2)
-    // console.log('HEY')
 
+    var axisGeometry = new THREE.BufferGeometry().setFromPoints([
+        new THREE.Vector3(0,0,-10),
+        new THREE.Vector3(0,0,10)
+    ])
+    var axisMesh = new THREE.Line(axisGeometry,curveMaterial)
+    meshes.axis = axisMesh
+    scene.add(meshes.axis)
+    meshes.axis.visible = false
 }
 
 
@@ -158,6 +195,7 @@ function updateMeshes(dt) {
     
 
     transformMesh(meshes.hedgehog,t,params.wiggle)
+    transformMesh(meshes.ribbon,t,params.wiggle)
 
     points1 = getCurvePoints(t,params.wiggle).firstPoints
     points2 = getCurvePoints(t,params.wiggle).nextPoints

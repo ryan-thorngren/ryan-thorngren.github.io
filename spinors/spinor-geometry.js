@@ -48,14 +48,14 @@ function createRibbonVertices(length,width,stretch) {
 
 }
 
-function createHedgehogVertices(n,m){
+function createHedgehogVertices(n,m,width,stretch){
     var sphere = new THREE.SphereBufferGeometry(1,n,m)
     var sphereVertices = sphere.attributes.position.array
     var numCoords = sphereVertices.length
     var numSegments = 100
     var length = 0.1
-    var width = 0.1
-    var stretch = 1
+    // var width = 0.1
+    // var stretch = 1
     var vertices = []
     for(var i = -numSegments; i < numSegments; i++){
         vertices.push(new THREE.Vector3(i*length,-width*stretch,-width))
@@ -152,6 +152,7 @@ function rotation(r,t,wiggle) {
         var s = Math.exp(-Math.pow(r-inner,2)/12)
     }
     return new THREE.Quaternion(1-s + s*Math.sin(t),s*Math.cos(t),wiggle*s*(1-s),0).normalize()
+    
 }
 
 
