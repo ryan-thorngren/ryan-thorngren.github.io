@@ -76,6 +76,7 @@ function init() {
     scene = new THREE.Scene()
     camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000)
     camera.position.z = 8
+    camera.position.y = 4
     renderer = new THREE.WebGLRenderer({ preserveDrawingBuffer: true})
     renderer.autoClearColor = true
     fadePlane = new THREE.Mesh( new THREE.PlaneGeometry( 100, 100 ), new THREE.MeshBasicMaterial( {color:0, transparent: true, opacity: 0.1 } ) );
