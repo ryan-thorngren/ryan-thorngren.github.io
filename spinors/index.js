@@ -27,11 +27,17 @@ const controller = {
         renderer.autoClearColor = !renderer.autoClearColor
     },
 
-    toggleAxis: function(){
-        meshes.axis.visible = !meshes.axis.visible
+    toggleAxes: function(){
+        meshes.axis1.visible = !meshes.axis1.visible
+        meshes.axis2.visible = !meshes.axis2.visible
+        meshes.axis3.visible = !meshes.axis3.visible
     },
 
-    toggleGeometry: function(){
+    switchAxis: function(){
+        params.axis = 1- params.axis
+    },
+
+    switchGeometry: function(){
         meshes.ribbon.visible = !meshes.ribbon.visible
         meshes.hedgehog.visible = !meshes.hedgehog.visible
     },
@@ -57,6 +63,7 @@ function init() {
     gui.show()
     params.speed = 1
     gui.add(params,'speed')
+    params.axis = 0
     params.wiggle = 4
     gui.add(params,'wiggle')
     params.fade = 1
@@ -65,11 +72,12 @@ function init() {
     gui.add(params,'thickness',1,10,1)
     params.density = 1
     gui.add(params,'density',1,5,1)
+    gui.add(controller,'toggleAxes')
+    gui.add(controller,'switchAxis')
+    gui.add(controller,'switchGeometry')
     gui.add(controller,'toggleLegend')
-    gui.add(controller,'toggleFade')
-    gui.add(controller,'toggleAxis')
-    gui.add(controller,'toggleGeometry')
     gui.add(controller,'rebuildGeometry')
+    gui.add(controller,'toggleFade')
     gui.close()
 
     //initialize main scene
@@ -180,14 +188,30 @@ function initMeshes() {
     miniscene.add(curve1)
     miniscene.add(curve2)
 
-    var axisGeometry = new THREE.BufferGeometry().setFromPoints([
+    var axisGeometry1 = new THREE.BufferGeometry().setFromPoints([
         new THREE.Vector3(0,0,-10),
         new THREE.Vector3(0,0,10)
     ])
-    var axisMesh = new THREE.Line(axisGeometry,curveMaterial)
-    meshes.axis = axisMesh
-    scene.add(meshes.axis)
-    meshes.axis.visible = false
+    var axisGeometry2 = new THREE.BufferGeometry().setFromPoints([
+        new THREE.Vector3(0,-10,0),
+        new THREE.Vector3(0,10,0)
+    ])
+    var axisGeometry3 = new THREE.BufferGeometry().setFromPoints([
+        new THREE.Vector3(-10,0,0),
+        new THREE.Vector3(10,0,0)
+    ])
+    var axisMesh1 = new THREE.Line(axisGeometry1,curveMaterial)
+    var axisMesh2 = new THREE.Line(axisGeometry2,curveMaterial)
+    var axisMesh3 = new THREE.Line(axisGeometry3,curveMaterial)
+    meshes.axis1 = axisMesh1
+    meshes.axis2 = axisMesh2
+    meshes.axis3 = axisMesh3
+    scene.add(meshes.axis1)
+    scene.add(meshes.axis2)
+    scene.add(meshes.axis3)
+    meshes.axis1.visible = false
+    meshes.axis2.visible = false
+    meshes.axis3.visible = false
 }
 
 
@@ -195,8 +219,8 @@ function updateMeshes(dt) {
 
     
 
-    transformMesh(meshes.hedgehog,t,params.wiggle)
-    transformMesh(meshes.ribbon,t,params.wiggle)
+    transformMesh(meshes.hedgehog,t,params.wiggle,params.axis)
+    transformMesh(meshes.ribbon,t,params.wiggle,params.axis)
 
     points1 = getCurvePoints(t,params.wiggle).firstPoints
     points2 = getCurvePoints(t,params.wiggle).nextPoints
