@@ -16,8 +16,10 @@ However, at $s = 1/2$ we get a singularity,
 
 $$N_0(1/2,t) = \frac{1}{2}(\cos(t/2) - 1 + i \sin(t/2))$$
 
-vanishes at $t = 2\pi n$. To fix this, we add some "wiggle", a matrix function $\delta N(s,t)$ which vanishes at $s = 0$ and $s = 1$ for all $t$ and doesn't vanish at $s = 1/2$ and $t = 2\pi n$. Nearly any such function will do! I chose
+vanishes at $t = 2\pi n$ and we can't normalize the whole path to get a family of $SU(2)$ rotations. To fix this, we add some "wiggle", a matrix function $\delta N(s,t)$ which vanishes at $s = 0$ and $s = 1$ for all $t$ and doesn't vanish at $s = 1/2$ and $t = 2\pi n$. Nearly any such function will do! I chose
 
 $$\delta N(s,t) = w s(1-s) Z,$$
 
-where $w$ is the parameter called wiggle in the simulation.
+where $w$ is the parameter called wiggle in the simulation. This essentially applies a $Z$ rotation to intermediate radii around $s = 1/2$. Like magic, this allows us to completely avoid the singularity!
+
+Note that since we used $SU(2)$ / quaternions, we paid the price of having a $4\pi$ periodic rather than $2\pi$ periodic animation. There's no way around this, since $\pi_1 SO(3)$ is nontrivial, but the fact that we can do this at all proves $\pi_1 SO(3)$ is 2-torsion.
