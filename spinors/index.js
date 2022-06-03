@@ -66,7 +66,7 @@ function init() {
     gui = new dat.GUI()
     params = gui.addFolder('parameters');
     gui.show()
-    params.speed = 1
+    params.speed = 2
     gui.add(params,'speed')
     params.axis = 0
     params.wiggle = 4
