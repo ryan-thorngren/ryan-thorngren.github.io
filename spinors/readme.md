@@ -1,8 +1,12 @@
-My take on [this lovely spinor animation on wikipedia](https://en.wikipedia.org/wiki/File:Belt_Trick.ogv).
+This is my take on [this lovely spinor animation on wikipedia](https://en.wikipedia.org/wiki/File:Belt_Trick.ogv). I have a love/hate relationship with fermions and I'm always looking to understand them more deeply. I knew about the single belt trick, but seeing all those belts and none of them getting tangled really blew me away. Immediately I wondered, how do you make this?
 
-The way it works is we draw a time dependent path $M(r,t) \in SO(3)$ with $M(1,t) = 1$ and $M(0,t)$ a rotation around a fixed axis with angle proportional to $t$. At time $t$ we apply $M(r,t)$ to the sphere of radius $r$. So long as $M(r,t)$ is smooth we'll have a smooth animation, and because each sphere is just rotating, there will be no collisions or tangles. This path is drawn in the top left insert, where I draw $SO(3)$ as a 3-ball with anti-podal boundary points identified.
+Well here's how I went about it. I thought one way to ensure no tangling is to apply rotations to spheres of different radii. So essentially I need to choose a time dependent path
 
-To accomplish this first I choose a function $s(r)$ which for $r \in \[0,r_0\)$ (for some inner radius $r_0$) is constant $s(r) = 1$ and then decays to zero as $r \to \infty$.
+$$M(r,t) \in SO(3)$$
+
+with the boundary conditions $M(1,t) = 1$, and $M(0,t) = R(t)$ a rotation around a fixed axis with angle proportional to $t$. At time $t$ we apply $M(r,t)$ to the sphere of radius $r$. So long as $M(r,t)$ is smooth we'll have a smooth animation. I plotted the path I chose in the top left insert if you click "toggleLegend", where I drew $SO(3)$ as a 3-ball with anti-podal boundary points identified (fun puzzle: figure out the group multiplication in this embedding!).
+
+To find a smooth path first I chose a function $s(r)$ which for $r \in \[0,r_0\)$ (for some inner radius $r_0$) is constant $s(r) = 1$ and then decays to zero as $r \to \infty$.
 
 Then I take $M(r,t) = N(s(r),t)$, where $N(s,t) = N_0(s,t) + \delta N(s,t)$. $N_0(s,t)$ is a linear interpolation (see below) between the identity at $s = 0$ and an $X$ rotation by angle $t$ at $s = 1$. In terms of Pauli matrices we can write this rotation as
 
