@@ -51,6 +51,11 @@ const controller = {
         meshes.hedgehog.geometry = hhGeometry
         meshes.hedgehog.initialVertices = hhVertices
         meshes.hedgehog.needsUpdate = true
+    },
+
+    goToSource: function() 
+    { 
+        window.location = "https://github.com/ryan-thorngren/ryan-thorngren.github.io/tree/main/spinors";
     }
 }
 
@@ -78,6 +83,7 @@ function init() {
     gui.add(controller,'toggleLegend')
     gui.add(controller,'rebuildGeometry')
     gui.add(controller,'toggleFade')
+    gui.add(controller,'goToSource')
     gui.close()
 
     //initialize main scene
