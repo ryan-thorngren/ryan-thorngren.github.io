@@ -16,7 +16,7 @@ However, at $s = 1/2$ we get a singularity,
 
 $$N_0(1/2,t) = \frac{1}{2}(\cos(t/2) - 1 + i \sin(t/2))$$
 
-vanishes at $t = 2\pi n$ and we can't normalize the whole path to get a family of $SU(2)$ rotations. To fix this, we add some "wiggle", a matrix function $\delta N(s,t)$ which vanishes at $s = 0$ and $s = 1$ for all $t$ and doesn't vanish at $s = 1/2$ and $t = 2\pi n$. Nearly any such function will do! I chose
+vanishes at $t = 2\pi n$ and we can't normalize the whole path to get a family of $SU(2)$ rotations. To fix this, we add some "wiggle", a matrix function $\delta N(s,t)$ which vanishes at $s = 0$ and $s = 1$ for all $t$ and doesn't vanish at $s = 1/2$ and $t = 2\pi n$. Nearly any such function will do, so long as we use a different axis from X! I chose
 
 $$\delta N(s,t) = w s(1-s) Z,$$
 
