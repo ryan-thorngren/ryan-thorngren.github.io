@@ -1,3 +1,5 @@
+[Go to the animation](https://ryan-thorngren.github.io/spinors/)
+
 This is my take on [this lovely spinor animation on wikipedia](https://en.wikipedia.org/wiki/File:Belt_Trick.ogv). I have a love/hate relationship with fermions and I'm always looking to understand them more deeply. I knew about the single belt trick, but seeing all those belts and none of them getting tangled really blew me away. Immediately I wondered, how do you make this?
 
 Well here's how I went about it. I thought one way to ensure no tangling is to apply rotations to spheres of different radii. So essentially I need to choose a time dependent path
