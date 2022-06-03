@@ -30,4 +30,4 @@ $$\delta N(s,t) = w s(1-s) Z,$$
 
 where $w$ is the parameter called wiggle in the simulation. This essentially applies a $Z$ rotation to intermediate radii around $s = 1/2$. Like magic, this allows us to completely avoid the singularity!
 
-Note that since we used $SU(2)$ / quaternions, we paid the price of having a $4\pi$ periodic rather than $2\pi$ periodic animation. There's no way around this, since $\pi_1 SO(3)$ is nontrivial, but the fact that we can do this at all proves $\pi_1 SO(3)$ is 2-torsion.
+Note that since we used $SU(2)$ / quaternions, we paid the price of having a $4\pi$ periodic rather than $2\pi$ periodic animation. There's no way around this, since $\pi_1 SO(3)$ is nontrivial, but the fact that we can do this at all proves $\pi_1 SO(3)$ is 2-torsion. The singularity we encountered while only using one axis of rotation is because $\pi_1 SO(2) = \mathbb{Z}$ has no torsion!
