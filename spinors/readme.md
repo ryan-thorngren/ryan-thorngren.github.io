@@ -4,7 +4,9 @@ Well here's how I went about it. I thought one way to ensure no tangling is to a
 
 $$M(r,t) \in SO(3)$$
 
-with the boundary conditions $M(1,t) = 1$, and $M(0,t) = R(t)$ a rotation around a fixed axis with angle proportional to $t$. At time $t$ we apply $M(r,t)$ to the sphere of radius $r$. So long as $M(r,t)$ is smooth we'll have a smooth animation. I plotted the path I chose in the top left insert if you click "toggleLegend", where I drew $SO(3)$ as a 3-ball with anti-podal boundary points identified (fun puzzle: figure out the group multiplication in this embedding!).
+with the boundary conditions $M(1,t) = 1$, and $M(0,t) = R(t)$ a rotation around a fixed axis with angle proportional to $t$. At time $t$ we apply $M(r,t)$ to the sphere of radius $r$. So long as $M(r,t)$ is smooth we'll have a smooth animation.
+
+I plotted the path I chose in the top left insert if you click "toggleLegend", where I drew $SO(3)$ as a 3-ball with anti-podal boundary points identified (fun puzzle: figure out the group multiplication in this embedding!).
 
 To find a smooth path first I chose a function $s(r)$ which for $r \in \[0,r_0\)$ (for some inner radius $r_0$) is constant $s(r) = 1$ and then decays to zero as $r \to \infty$.
 
