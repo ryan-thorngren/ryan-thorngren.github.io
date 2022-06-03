@@ -33,9 +33,9 @@ const controller = {
         meshes.axis3.visible = !meshes.axis3.visible
     },
 
-    switchAxis: function(){
-        params.axis = 1- params.axis
-    },
+    // switchMode: function(){
+    //     params.mode = (params.mode + 1)%3
+    // },
 
     switchGeometry: function(){
         meshes.ribbon.visible = !meshes.ribbon.visible
@@ -66,9 +66,10 @@ function init() {
     gui = new dat.GUI()
     params = gui.addFolder('parameters');
     gui.show()
-    params.speed = 2
+    params.speed = 1
     gui.add(params,'speed')
-    params.axis = 0
+    params.mode = 0
+    gui.add(params,'mode',0,2,1)
     params.wiggle = 4
     gui.add(params,'wiggle')
     params.fade = 1
@@ -78,7 +79,6 @@ function init() {
     params.density = 1
     gui.add(params,'density',1,5,1)
     gui.add(controller,'toggleAxes')
-    gui.add(controller,'switchAxis')
     gui.add(controller,'switchGeometry')
     gui.add(controller,'toggleLegend')
     gui.add(controller,'rebuildGeometry')
@@ -225,8 +225,8 @@ function updateMeshes(dt) {
 
     
 
-    transformMesh(meshes.hedgehog,t,params.wiggle,params.axis)
-    transformMesh(meshes.ribbon,t,params.wiggle,params.axis)
+    transformMesh(meshes.hedgehog,t,params.wiggle,params.mode)
+    transformMesh(meshes.ribbon,t,params.wiggle,params.mode)
 
     points1 = getCurvePoints(t,params.wiggle).firstPoints
     points2 = getCurvePoints(t,params.wiggle).nextPoints

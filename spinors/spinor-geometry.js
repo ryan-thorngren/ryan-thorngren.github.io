@@ -120,7 +120,7 @@ function createHedgehogVertices(n,m,width,stretch){
 
 }
 
-function transformMesh(mesh,t,wiggle,whichAxis) {
+function transformMesh(mesh,t,wiggle,mode) {
 
     
     var length = mesh.geometry.attributes.position.array.length
@@ -135,7 +135,7 @@ function transformMesh(mesh,t,wiggle,whichAxis) {
             mesh.initialVertices[i].y,
             mesh.initialVertices[i].z)
         var r = vect.length()
-        vect = vect.applyQuaternion(rotation(r,t,wiggle,whichAxis))
+        vect = vect.applyQuaternion(rotation(r,t,wiggle,mode))
         
         mesh.geometry.attributes.position.array[3*i] = vect.x
         mesh.geometry.attributes.position.array[3*i+1] = vect.y
@@ -145,18 +145,20 @@ function transformMesh(mesh,t,wiggle,whichAxis) {
 
 }
 
-function rotation(r,t,wiggle,whichAxis) {
+function rotation(r,t,wiggle,mode) {
     var inner = 0.5
     var s = 1
     if (r > inner){
         var s = Math.exp(-Math.pow(r-inner,2)/12)
     }
-    if(whichAxis == 0){
+    if(mode == 0){
         return new THREE.Quaternion(1-s + s*Math.sin(t),wiggle*s*(1-s),s*Math.cos(t),0).normalize()
     }
-    else {
+    if(mode == 1) {
         return new THREE.Quaternion(1-s + s*Math.sin(t),s*Math.cos(t),wiggle*s*(1-s),0).normalize()
-    } 
+    }else{
+        return new THREE.Quaternion(1-s + s*Math.sin(t),wiggle*s*(1-s)*Math.sin(t),s*Math.cos(t),0).normalize()
+    }
     
 }
 
