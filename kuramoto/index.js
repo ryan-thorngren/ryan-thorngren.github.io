@@ -54,7 +54,7 @@ function init() {
     gui = new dat.GUI()
     params = gui.addFolder('parameters');
     gui.show()
-    params.speed = 5
+    params.speed = 20
     gui.add(params,'speed')
     params.force = 645
     gui.add(params,'force')
