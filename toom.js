@@ -1,4 +1,4 @@
-//my jam on a really cool CA visualization on the old thealef.net
+
 
 
 const canvas = document.getElementById("canvas")
@@ -92,7 +92,7 @@ function render() {
     if(go){
         for(x = 0; x < xmax; x++){
             for(y = 0; y < ymax; y++){
-                newState[x][y] = majority(state[x][y],state[(x+1 % xmax)][y],state[x][(y+1 %ymax)])
+                newState[x][y] = majority(state[x][y],state[((x+1) % xmax)][y],state[x][((y+1) %ymax)])
             }
             newState.push(newRow)
         }
