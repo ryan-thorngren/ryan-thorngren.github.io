@@ -67,8 +67,8 @@ function begin(){
         row = []
         newRow = []
         for(y = 0; y < ymax; y++){
-            row.push((2*Math.floor(Math.random())-1))
-            newRow.push((2*Math.floor(Math.random())-1))
+            row.push((2*Math.floor(2*Math.random())-1))
+            newRow.push((2*Math.floor(2*Math.random())-1))
         }
         newState.push(row)
         state.push(row)    
