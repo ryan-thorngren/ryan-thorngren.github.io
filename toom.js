@@ -131,7 +131,7 @@ function render() {
 
         // //iterate and recurse
         // y+=direction
-        setTimeout(render,8)
+        // setTimeout(render,8)
     }
     
 }
