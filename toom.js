@@ -94,7 +94,6 @@ function render() {
             for(y = 0; y < ymax; y++){
                 newState[x][y] = majority(state[x][y],state[((x+1) % xmax)][y],state[x][((y+1) %ymax)])
             }
-            newState.push(newRow)
         }
         state = newState
         //clear next row
