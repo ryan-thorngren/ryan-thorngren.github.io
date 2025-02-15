@@ -1,4 +1,4 @@
-
+//my jam on a really cool CA visualization on the old thealef.net
 
 
 const canvas = document.getElementById("canvas")
@@ -63,10 +63,10 @@ function begin(){
     // direction = 1
     state = []
     newState = []
-    for(y = 0; y < ymax; y++){
+    for(x = 0; x < xmax; x++){
         row = []
         newRow = []
-        for(x = 0; x < xmax; x++){
+        for(y = 0; y < ymax; y++){
             row.push((2*Math.floor(Math.random())-1))
             newRow.push((2*Math.floor(Math.random())-1))
         }
