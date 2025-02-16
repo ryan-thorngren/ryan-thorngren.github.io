@@ -1,4 +1,4 @@
-//my jam on a really cool CA visualization on the old thealef.net
+
 
 
 const canvas = document.getElementById("canvas")
@@ -27,6 +27,28 @@ colors = rgbColors.map(rgbToHex)
 
 var noise = false
 var noisebias = 1
+
+const button = document.getElementById('noisebutton')
+button.addEventListener('click', function() { 
+    if(!noise){
+        console.log('noise on')
+        total = 0
+        for(x = 0; x< xmax; x++){
+            for(y = 0; y < ymax; y++){
+                total += state[x][y]
+            }
+        }
+        if(total > 0){
+            noisebias = -1
+        } else {
+            noisebias = 1
+        }
+        noise = true
+    } else {
+        console.log('noise off')
+        noise = false
+    }
+});
 
 window.addEventListener("keydown", (e) => {
     if(e.key == 'c'){
