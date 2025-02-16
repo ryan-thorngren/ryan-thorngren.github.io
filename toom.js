@@ -22,11 +22,21 @@ var numColors = 5
 rgbColors = genRgbColors()
 colors = rgbColors.map(rgbToHex)
 
+var noise = false
+
 window.addEventListener("keydown", (e) => {
     if(e.key == 'c'){
         console.log(colors)
         rgnColors = genRgbColors()
         colors = rgbColors.map(rgbToHex)
+    }if(e.key == 'n'){
+        if(!noise){
+            console.log('noise on')
+            noise = true
+        } else {
+            console.log('noise off')
+            noise = false
+        }
     }
 })
 
@@ -92,8 +102,13 @@ function render() {
     if(go){
         for(x = 0; x < xmax; x++){
             for(y = 0; y < ymax; y++){
-                if(Math.random() < 0.01){
-                    newState[x][y] = 1
+                if(noise){
+                    if(Math.random() < 0.02){
+                        newState[x][y] = 1
+                    }
+                    else{
+                        newState[x][y] = majority(state[x][y],state[((x+1) % xmax)][y],state[x][((y+1) %ymax)])
+                    }
                 }
                 else{
                     newState[x][y] = majority(state[x][y],state[((x+1) % xmax)][y],state[x][((y+1) %ymax)])
