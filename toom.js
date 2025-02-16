@@ -119,7 +119,7 @@ function render() {
             for(y = 0; y < ymax; y++){
                 if(noise){
                     if(Math.random() < 0.02){
-                        newState[x][y] = 1
+                        newState[x][y] = noisebias
                     }
                     else{
                         newState[x][y] = majority(state[x][y],state[((x+1) % xmax)][y],state[x][((y+1) %ymax)])
