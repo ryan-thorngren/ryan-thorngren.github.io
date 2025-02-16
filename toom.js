@@ -8,6 +8,9 @@ var height = document.getElementById("stuff").clientHeight
 var xmax = document.body.clientWidth
 var ymax = height+200
 
+var state
+var newState
+
 var ctx = canvas.getContext('2d')
 
 ctx.canvas.width = xmax
@@ -23,6 +26,7 @@ rgbColors = genRgbColors()
 colors = rgbColors.map(rgbToHex)
 
 var noise = false
+var noisebias = 1
 
 window.addEventListener("keydown", (e) => {
     if(e.key == 'c'){
@@ -32,6 +36,17 @@ window.addEventListener("keydown", (e) => {
     }if(e.key == 'n'){
         if(!noise){
             console.log('noise on')
+            total = 0
+            for(x = 0; x< xmax; x++){
+                for(y = 0; y < ymax; y++){
+                    total += state[x][y]
+                }
+            }
+            if(total > 0){
+                noisebias = -1
+            } else {
+                noisebias = 1
+            }
             noise = true
         } else {
             console.log('noise off')
