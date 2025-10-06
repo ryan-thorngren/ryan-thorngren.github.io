@@ -4,7 +4,7 @@
 const canvas = document.getElementById("canvas")
 
 // var height = document.getElementById("stuff").clientHeight
-var height = document.body.clientHeight
+var height = window.innerHeight
 // var xmax = window.innerWidth
 var xmax = document.body.clientWidth
 // var ymax = height+200
