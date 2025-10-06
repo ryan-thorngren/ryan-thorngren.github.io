@@ -28,12 +28,13 @@ canvas {
 
 
 .textbox {
-  top:20px;
+  /* top:20px; */
   background-color: rgb(47, 47, 47);
   color: antiquewhite;
   position: relative;
   top: 80px;
   left: 80px;
+  bottom:80px;
   margin-left: 80px;
   width: 60%;
   border:2px solid antiquewhite;
