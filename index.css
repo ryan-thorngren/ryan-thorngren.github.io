@@ -21,9 +21,9 @@ body {
 
 canvas {
   position: fixed;
-  top: 0px;
   z-index: -1;
   background-color: black;
+  inset:0px;
 }
 
 
