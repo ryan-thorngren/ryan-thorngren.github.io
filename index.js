@@ -53,7 +53,7 @@ window.addEventListener("load",begin)
 
 
 function begin(){
-    height = document.getElementById("stuff").clientHeight
+    // height = document.getElementById("stuff").clientHeight
     xmax = xmax = document.body.clientWidth
     ymax = height+200
     ctx.canvas.width = xmax
