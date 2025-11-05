@@ -27,7 +27,7 @@ colors = rgbColors.map(rgbToHex)
 window.addEventListener("keydown", (e) => {
     if(e.key == 'c'){
         console.log(colors)
-        rgnColors = genRgbColors()
+        rgbColors = genRgbColors()
         colors = rgbColors.map(rgbToHex)
     }
 })
