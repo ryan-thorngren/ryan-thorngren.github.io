@@ -108,7 +108,7 @@ function render() {
         else if(y == 0){
             direction = 1
             ruleNumber = Math.floor(Math.random()*numRules)
-            rgbColors = genRgbColors()
+            rgbColors = updateRgbColors()
             colors = rgbColors.map(rgbToHex)
         }
 
@@ -158,9 +158,9 @@ function updateRgbColors(){
     for(var i = 0; i < numColors; i++){
         result.push(
             [
-                (rgbColors[i][0] + Math.floor(Math.random()*20-10))%255,
-                (rgbColors[i][1] + Math.floor(Math.random()*20-10))%255,
-                (rgbColors[i][2] + Math.floor(Math.random()*20-10))%255
+                (rgbColors[i][0] + Math.floor(Math.random()*60-30))%255,
+                (rgbColors[i][1] + Math.floor(Math.random()*60-30))%255,
+                (rgbColors[i][2] + Math.floor(Math.random()*60-30))%255
             ]
         )
     }
