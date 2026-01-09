@@ -101,14 +101,14 @@ function render() {
         //reverse if at boundary
         if(y >= ymax-1){
             direction = -1
-            ruleNumber = Math.floor(Math.random()*numRules)
+            // ruleNumber = Math.floor(Math.random()*numRules)
             rgbColors = updateRgbColors()
             colors = rgbColors.map(rgbToHex)
         }
         else if(y == 0){
             direction = 1
             ruleNumber = Math.floor(Math.random()*numRules)
-            rgbColors = updateRgbColors()
+            rgbColors = genRgbColors()
             colors = rgbColors.map(rgbToHex)
         }
 
