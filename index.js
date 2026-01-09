@@ -158,9 +158,9 @@ function updateRgbColors(){
     for(var i = 0; i < numColors; i++){
         result.push(
             [
-                Math.Abs((rgbColors[i][0] + Math.floor(Math.random()*60-30))%255),
-                Math.Abs((rgbColors[i][1] + Math.floor(Math.random()*60-30))%255),
-                Math.Abs((rgbColors[i][2] + Math.floor(Math.random()*60-30))%255)
+                Math.abs((rgbColors[i][0] + Math.floor(Math.random()*60-30))%255),
+                Math.abs((rgbColors[i][1] + Math.floor(Math.random()*60-30))%255),
+                Math.abs((rgbColors[i][2] + Math.floor(Math.random()*60-30))%255)
             ]
         )
     }
