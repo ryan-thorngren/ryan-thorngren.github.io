@@ -64,3 +64,13 @@ h3 {
 a {
   color: hotpink;
 }
+
+.side-by-side {
+  display: flex;
+  align-items: center; /* Aligns image and text vertically in the middle */
+  gap: 15px;          /* Space between the image and the paragraph */
+}
+
+.side-by-side img {
+  border-radius: 4px; /* Optional: rounds the image corners */
+}
